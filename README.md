@@ -22,6 +22,31 @@ If you are interested in using this notebook to look at another area, the infrom
 
 ## Code examples
 
+With the hvplot library, it's easy to generate visualizations that you can interact with to look at statistics by area. 
+
+Check out the housing growth with a simple bar chart:
+```python
+housing_units_by_year.hvplot.bar(x="year",                              y="housing_units",  title="Housing Units in San Francisco from 2010 to 2016")
+```
+![Bar Chart](Images/zoomed-housing-units-by-year.PNG)
+
+Look at trends in sales prices and gross rent with a line plot:
+```python
+prices_square_foot_by_year.hvplot.line(x="year", y="housing_units", title="Sale Price Per Square Foot and Average Gross Rent - 2010-2016 - San Francisco")
+```
+![Plot](Images/avg-sale-px-sq-foot-gross-rent.PNG)
+
+Add a drop-down menu to dig deeper to check out the information by neighborhood:
+```python
+prices_by_year_by_neighborhood.hvplot(title = "Sale Price Per Square Foot and Average Gross Rent - 2010-2016 - By neighborhood",groupby = "neighborhood")
+```
+![Pricing](Images/pricing-info-by-neighborhood.PNG)
+
+You can also easily map your data as well:
+``` python
+all_neighborhoods_df.hvplot.points('Lon','Lat',geo=True,size = "sale_price_sqr_foot", color = "gross_rent", frame_width = 700,frame_height = 500, tiles = 'OSM', title = "Neighborhood Map with Housing Price Information")
+```
+![Map](Images/6-4-geoviews-plot.PNG)
 
 
 ## Contributors
